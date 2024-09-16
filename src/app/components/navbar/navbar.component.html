@@ -1,1 +1,147 @@
-<p>navbar works!</p>
+<nav class="bg-white py-4 px-6 rounded-lg shadow-lg">
+  <!-- Navbar container -->
+  <div class="flex items-center justify-between">
+    <!-- Logo and Brand Name -->
+    <div class="flex items-center space-x-3">
+      <img src="assets/logo-icon.svg" alt="Logo" class="w-8 h-8" />
+      <span class="text-gray-800 text-xl font-bold">ArdentRIS</span>
+    </div>
+
+    <!-- Desktop menu -->
+    <ul
+      class="hidden lg:flex lg:items-center lg:space-x-6 flex-grow justify-center"
+    >
+      <li class="relative group flex items-center space-x-2">
+        <i
+          class="fa-brands fa-product-hunt text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+        ></i>
+        <a
+          href="#"
+          class="text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+          >Products</a
+        >
+        <div
+          class="absolute bottom-0 left-0 h-1 w-0 bg-teal-400 rounded-full transition-all duration-300 group-hover:w-full"
+        ></div>
+      </li>
+      <li class="relative group flex items-center space-x-2">
+        <i
+          class="fa-solid fa-hand-holding-heart text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+        ></i>
+        <a
+          href="#"
+          class="text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+          >Wishlist</a
+        >
+        <div
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 w-0 bg-teal-400 rounded-full transition-all duration-300 group-hover:w-full"
+        ></div>
+      </li>
+      <li class="relative group flex items-center space-x-2">
+        <i
+          class="fa-solid fa-address-card text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+        ></i>
+        <a
+          href="#"
+          class="text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+          >About</a
+        >
+        <div
+          class="absolute bottom-[-5px] left-0 h-1 w-full bg-teal-400 rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:bottom-0"
+        ></div>
+      </li>
+      <li class="relative group flex items-center space-x-2">
+        <i
+          class="fa-solid fa-comment-sms text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+        ></i>
+        <a
+          href="#"
+          class="text-gray-800 text-sm hover:text-blue-500 transition-colors duration-300"
+          >Contact</a
+        >
+        <div
+          class="absolute bottom-0 right-0 h-1 w-full bg-teal-400 rounded-full transform scale-x-0 origin-right transition-transform duration-300 group-hover:scale-x-100"
+        ></div>
+      </li>
+    </ul>
+
+    <!-- Mobile menu button -->
+    <div class="block lg:hidden">
+      <button (click)="toggleMenu()" class="text-gray-800 focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu items -->
+  <ul
+    *ngIf="isMenuOpen"
+    class="lg:hidden flex flex-col items-center space-y-4 mt-4"
+  >
+    <li class="relative group flex items-center space-x-2">
+      <i
+        class="fa-brands fa-product-hunt text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+      ></i>
+      <a
+        href="#"
+        class="text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+        >Products</a
+      >
+      <div
+        class="absolute bottom-0 left-0 h-1 w-0 bg-teal-400 rounded-full transition-all duration-300 group-hover:w-full"
+      ></div>
+    </li>
+    <li class="relative group flex items-center space-x-2">
+      <i
+        class="fa-solid fa-hand-holding-heart text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+      ></i>
+      <a
+        href="#"
+        class="text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+        >Wishlist</a
+      >
+      <div
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 w-0 bg-teal-400 rounded-full transition-all duration-300 group-hover:w-full"
+      ></div>
+    </li>
+    <li class="relative group flex items-center space-x-2">
+      <i
+        class="fa-solid fa-address-card text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+      ></i>
+      <a
+        href="#"
+        class="text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+        >About</a
+      >
+      <div
+        class="absolute bottom-[-5px] left-0 h-1 w-full bg-teal-400 rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:bottom-0"
+      ></div>
+    </li>
+    <li class="relative group flex items-center space-x-2">
+      <i
+        class="fa-solid fa-comment-sms text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+      ></i>
+      <a
+        href="#"
+        class="text-gray-800 text-lg font-medium hover:text-blue-500 transition-colors duration-300"
+        >Contact</a
+      >
+      <div
+        class="absolute bottom-0 right-0 h-1 w-full bg-teal-400 rounded-full transform scale-x-0 origin-right transition-transform duration-300 group-hover:scale-x-100"
+      ></div>
+    </li>
+  </ul>
+</nav>
