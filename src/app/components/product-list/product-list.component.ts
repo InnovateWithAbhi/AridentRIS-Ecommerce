@@ -97,8 +97,10 @@ export class ProductListComponent implements OnInit {
   searchQuery: string = '';
   selectedCategory: string = '';
   selectedPriceRange: string = '';
+  wishlist: any[] = [];
 
   ngOnInit(): void {
+    this.loadWishlist();
     this.filterProducts();
   }
 
@@ -128,8 +130,42 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: any): void {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    if (this.isBrowser()) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }
+
+  // Load wishlist from localStorage
+  loadWishlist(): void {
+    if (this.isBrowser()) {
+      this.wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    }
+  }
+
+  // Utility function to check if the code is running in the browser
+  isBrowser(): boolean {
+    return (
+      typeof window !== 'undefined' &&
+      typeof window.localStorage !== 'undefined'
+    );
+  }
+
+  // Check if a product is in the wishlist
+  isInWishlist(product: any): boolean {
+    return this.wishlist.some((item) => item.id === product.id);
+  }
+
+  // Toggle wishlist status
+  toggleWishlist(product: any): void {
+    if (this.isBrowser()) {
+      if (this.isInWishlist(product)) {
+        this.wishlist = this.wishlist.filter((item) => item.id !== product.id);
+      } else {
+        this.wishlist.push(product);
+      }
+      localStorage.setItem('wishlist', JSON.stringify(this.wishlist));
+    }
   }
 }
