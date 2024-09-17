@@ -107,7 +107,7 @@ export class ProductListComponent implements OnInit {
 
     if (this.searchQuery) {
       filtered = filtered.filter((product) =>
-        product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+        product.name.toLowerCase().startsWith(this.searchQuery.toLowerCase())
       );
     }
 
