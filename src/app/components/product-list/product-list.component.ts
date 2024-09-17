@@ -54,7 +54,7 @@ export class ProductListComponent implements OnInit {
     {
       id: 6,
       name: 'Leather Jacket',
-      description: 'Stylish leather jacket for all seasons.',
+      description: 'Stylish leather jackets for all weather and seasons.',
       price: 199,
       category: 'fashion',
       image: 'assets/images/leather-jacket.jpeg',
@@ -91,7 +91,6 @@ export class ProductListComponent implements OnInit {
       category: 'home',
       image: 'assets/images/vacuum-cleaner.jpeg',
     },
-    // Add more products as needed
   ];
 
   filteredProducts = this.products;
@@ -129,7 +128,6 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: any): void {
-    // Implement add to cart functionality using local storage
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
